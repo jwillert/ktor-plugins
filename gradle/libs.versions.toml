@@ -1,5 +1,5 @@
 [versions]
-kotlin = "2.1.20"
+kotlin = "2.3.20"
 ktor = "3.0.3"
 kotest = "5.9.1"
 exposed = "0.54.0"
@@ -12,6 +12,7 @@ postgresql = "42.7.4"
 logback = "1.5.11"
 hikari = "5.1.0"
 h2 = "2.2.224"
+mavenPublishing = "0.36.0"
 
 [libraries]
 # Ktor server
@@ -51,6 +52,14 @@ postgresql                    = { module = "org.postgresql:postgresql",         
 h2                            = { module = "com.h2database:h2",                           version.ref = "h2" }
 hikari                        = { module = "com.zaxxer:HikariCP",                         version.ref = "hikari" }
 logback                       = { module = "ch.qos.logback:logback-classic",              version.ref = "logback" }
+
+# Kotlin
+kotlin-gradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+kotlin-serialization = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "kotlin" }
+kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
+
+mavenPublishing = { module = "com.vanniktech:gradle-maven-publish-plugin", version.ref = "mavenPublishing" }
+
 
 [plugins]
 kotlin-jvm          = { id = "org.jetbrains.kotlin.jvm",                    version.ref = "kotlin" }

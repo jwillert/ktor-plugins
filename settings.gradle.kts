@@ -1,4 +1,9 @@
+import org.gradle.kotlin.dsl.mavenCentral
 pluginManagement {
+    plugins {
+        kotlin("jvm") version "2.3.20"
+        kotlin("plugin.serialization") version "2.3.20"
+    }
     includeBuild("build-logic")
     repositories {
         gradlePluginPortal()
@@ -19,6 +24,7 @@ include("sample")
 
 dependencyResolutionManagement {
     repositories {
+        gradlePluginPortal()
         mavenCentral()
     }
 }

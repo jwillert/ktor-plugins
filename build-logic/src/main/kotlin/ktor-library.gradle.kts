@@ -3,8 +3,8 @@
  * Provides: Kotlin JVM + Serialization, maven-publish, JVM 17, JUnit 5, common test deps.
  */
 plugins {
-    id("org.jetbrains.kotlin.jvm")
-    id("org.jetbrains.kotlin.plugin.serialization")
+    kotlin("jvm")
+    kotlin("plugin.serialization")
     `maven-publish`
 }
 
