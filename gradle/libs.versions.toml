@@ -1,0 +1,57 @@
+[versions]
+kotlin = "2.1.20"
+ktor = "3.0.3"
+kotest = "5.9.1"
+exposed = "0.54.0"
+lettuce = "6.4.0.RELEASE"
+testcontainers = "1.20.4"
+serialization = "1.7.3"
+coroutines = "1.9.0"
+mockk = "1.13.12"
+postgresql = "42.7.4"
+logback = "1.5.11"
+hikari = "5.1.0"
+h2 = "2.2.224"
+
+[libraries]
+# Ktor server
+ktor-server-core              = { module = "io.ktor:ktor-server-core",                    version.ref = "ktor" }
+ktor-server-auth              = { module = "io.ktor:ktor-server-auth",                    version.ref = "ktor" }
+ktor-server-sessions          = { module = "io.ktor:ktor-server-sessions",                version.ref = "ktor" }
+ktor-server-netty             = { module = "io.ktor:ktor-server-netty",                   version.ref = "ktor" }
+ktor-server-content-neg       = { module = "io.ktor:ktor-server-content-negotiation",     version.ref = "ktor" }
+ktor-server-status-pages      = { module = "io.ktor:ktor-server-status-pages",            version.ref = "ktor" }
+ktor-server-test-host         = { module = "io.ktor:ktor-server-test-host",               version.ref = "ktor" }
+
+# Ktor client
+ktor-client-cio               = { module = "io.ktor:ktor-client-cio",                     version.ref = "ktor" }
+ktor-client-content-neg       = { module = "io.ktor:ktor-client-content-negotiation",     version.ref = "ktor" }
+ktor-client-mock              = { module = "io.ktor:ktor-client-mock",                    version.ref = "ktor" }
+
+# Serialization
+ktor-serialization-json       = { module = "io.ktor:ktor-serialization-kotlinx-json",     version.ref = "ktor" }
+kotlinx-serialization-json    = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization" }
+kotlinx-coroutines-core       = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+
+# Exposed (SQL)
+exposed-core                  = { module = "org.jetbrains.exposed:exposed-core",          version.ref = "exposed" }
+exposed-jdbc                  = { module = "org.jetbrains.exposed:exposed-jdbc",          version.ref = "exposed" }
+
+# Redis
+lettuce-core                  = { module = "io.lettuce:lettuce-core",                     version.ref = "lettuce" }
+
+# Testing
+kotest-runner-junit5          = { module = "io.kotest:kotest-runner-junit5",              version.ref = "kotest" }
+kotest-assertions-core        = { module = "io.kotest:kotest-assertions-core",            version.ref = "kotest" }
+kotest-property               = { module = "io.kotest:kotest-property",                   version.ref = "kotest" }
+mockk                         = { module = "io.mockk:mockk",                              version.ref = "mockk" }
+testcontainers-core           = { module = "org.testcontainers:testcontainers",           version.ref = "testcontainers" }
+testcontainers-postgresql     = { module = "org.testcontainers:postgresql",               version.ref = "testcontainers" }
+postgresql                    = { module = "org.postgresql:postgresql",                   version.ref = "postgresql" }
+h2                            = { module = "com.h2database:h2",                           version.ref = "h2" }
+hikari                        = { module = "com.zaxxer:HikariCP",                         version.ref = "hikari" }
+logback                       = { module = "ch.qos.logback:logback-classic",              version.ref = "logback" }
+
+[plugins]
+kotlin-jvm          = { id = "org.jetbrains.kotlin.jvm",                    version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization",  version.ref = "kotlin" }
