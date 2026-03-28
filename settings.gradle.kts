@@ -21,6 +21,8 @@ include("ktor-oauth-session-core")
 include("ktor-oauth-session-exposed")
 include("ktor-oauth-session-redis")
 include("sample")
+include("ktor-ddd")
+include("ktor-ddd-exposed")
 
 dependencyResolutionManagement {
     repositories {

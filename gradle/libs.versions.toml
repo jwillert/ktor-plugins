@@ -3,6 +3,8 @@ kotlin = "2.3.20"
 ktor = "3.0.3"
 kotest = "5.9.1"
 exposed = "0.54.0"
+exposed-v1 = "1.1.1"
+koin = "3.5.3"
 lettuce = "6.4.0.RELEASE"
 testcontainers = "1.20.4"
 serialization = "1.7.3"
@@ -37,6 +39,11 @@ kotlinx-coroutines-core       = { module = "org.jetbrains.kotlinx:kotlinx-corout
 # Exposed (SQL)
 exposed-core                  = { module = "org.jetbrains.exposed:exposed-core",          version.ref = "exposed" }
 exposed-jdbc                  = { module = "org.jetbrains.exposed:exposed-jdbc",          version.ref = "exposed" }
+exposed-v1-core               = { module = "org.jetbrains.exposed:exposed-core",          version.ref = "exposed-v1" }
+exposed-v1-jdbc               = { module = "org.jetbrains.exposed:exposed-jdbc",          version.ref = "exposed-v1" }
+
+# Koin
+koin-ktor                     = { module = "io.insert-koin:koin-ktor",                    version.ref = "koin" }
 
 # Redis
 lettuce-core                  = { module = "io.lettuce:lettuce-core",                     version.ref = "lettuce" }

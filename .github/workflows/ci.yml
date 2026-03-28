@@ -24,7 +24,7 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
 
       - name: Run tests
-        run: ./gradlew :ktor-oauth-session-core:test :ktor-oauth-session-exposed:test --continue
+        run: ./gradlew :ktor-oauth-session-core:test :ktor-oauth-session-exposed:test :ktor-ddd:test :ktor-ddd-exposed:test --continue
 
       - name: Run Redis tests
         # Redis tests require Docker — available on GitHub-hosted runners

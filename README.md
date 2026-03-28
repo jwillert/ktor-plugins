@@ -1,13 +1,60 @@
-# ktor-oauth-session
+# ktor-plugins
 
-[![CI](https://github.com/willert-harbor/ktor-plugins/actions/workflows/ci.yml/badge.svg)](https://github.com/willert-harbor/ktor-plugins/actions/workflows/ci.yml)
 [![Maven](https://img.shields.io/badge/maven-dev.jwillert-blue)](https://github.com/willert-harbor/ktor-plugins/packages)
-![Kotlin](https://img.shields.io/badge/kotlin-2.1.20-7F52FF)
+![Kotlin](https://img.shields.io/badge/kotlin-2.3.20-7F52FF)
 ![Ktor](https://img.shields.io/badge/ktor-3.0.3-087CFA)
+
+A collection of Ktor plugins and DDD building blocks published to GitHub Packages.
+
+## Modules
+
+### ktor-oauth-session
 
 Server-side OAuth 2.0 session management for [Ktor](https://ktor.io). Stores tokens and user data **on the server** — only a session ID lives in the browser cookie. Supports automatic token refresh and pluggable storage backends.
 
-## Why
+| Artifact | Description |
+|---|---|
+| `dev.jwillert:ktor-oauth-session-core` | Core plugin, in-memory storage, token refresh |
+| `dev.jwillert:ktor-oauth-session-exposed` | SQL storage via [Exposed ORM](https://github.com/JetBrains/Exposed) |
+| `dev.jwillert:ktor-oauth-session-redis` | Redis storage via [Lettuce](https://lettuce.io) |
+
+### ktor-ddd
+
+Lightweight DDD building blocks for Ktor + Koin applications — `Entity`, `AggregateRoot`, `DomainEvent`, `EventBus`, and a Ktor plugin for wiring domain event handlers at startup.
+
+| Artifact | Description |
+|---|---|
+| `dev.jwillert:ktor-ddd` | Core abstractions + Ktor `DomainEvents` plugin |
+| `dev.jwillert:ktor-ddd-exposed` | `ExposedUnitOfWork` — wraps blocks in a `suspendTransaction` |
+
+See [ktor-ddd/README.md](ktor-ddd/README.md) and [ktor-ddd-exposed/README.md](ktor-ddd-exposed/README.md) for full docs.
+
+---
+
+## Installation
+
+All artifacts are published to GitHub Packages. Add the repository once to resolve any module:
+
+```kotlin
+// settings.gradle.kts
+dependencyResolutionManagement {
+    repositories {
+        maven {
+            url = uri("https://maven.pkg.github.com/jwillert/ktor-plugins")
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
+}
+```
+
+---
+
+## ktor-oauth-session
+
+### Why
 
 Ktor's built-in `auth-oauth` plugin handles the OAuth login flow, and `sessions` handles cookies — but by default the entire token payload is stored inside the cookie. This plugin bridges the gap:
 
@@ -16,28 +63,7 @@ Ktor's built-in `auth-oauth` plugin handles the OAuth login flow, and `sessions`
 - Automatic silent token refresh before expiry
 - Works alongside Ktor's standard `oauth()` provider — no reimplementation of the login flow
 
-## Modules
-
-| Artifact | Description |
-|---|---|
-| `dev.jwillert:ktor-oauth-session-core` | Core plugin, in-memory storage, token refresh |
-| `dev.jwillert:ktor-oauth-session-exposed` | SQL storage via [Exposed ORM](https://github.com/JetBrains/Exposed) |
-| `dev.jwillert:ktor-oauth-session-redis` | Redis storage via [Lettuce](https://lettuce.io) |
-
-## Installation
-
-```kotlin
-// settings.gradle.kts
-repositories {
-    maven {
-        url = uri("https://maven.pkg.github.com/jwillert/ktor-plugins")
-        credentials {
-            username = System.getenv("GITHUB_ACTOR")
-            password = System.getenv("GITHUB_TOKEN")
-        }
-    }
-}
-```
+### Installation
 
 ```kotlin
 // build.gradle.kts
@@ -50,7 +76,7 @@ dependencies {
 }
 ```
 
-## Quick Start
+### Quick Start
 
 ### 1. Choose a storage backend
 
