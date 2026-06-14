@@ -24,7 +24,12 @@ internal fun parseAttributes(spec: String): Map<String, String> =
             entry.substring(0, idx).trim() to entry.substring(idx + 1).trim()
         }
 
-/** Builds the full HTML document for one scenario. Pure — no browser involved. */
+/**
+ * Builds the full HTML document for one scenario. Pure — no browser involved.
+ *
+ * [htmlAttributes] values are emitted into the `<html>` tag verbatim (no escaping);
+ * they are trusted developer-supplied config (e.g. theme names, `dir=rtl`).
+ */
 internal fun buildPage(
     scenario: Scenario,
     css: String,
@@ -63,7 +68,7 @@ class VrtHarness {
     private val updateGoldens = System.getProperty("vrt.updateGoldens") == "true"
     private val htmlAttributes = parseAttributes(System.getProperty("vrt.htmlAttributes", ""))
     private val wrapperClasses = System.getProperty("vrt.wrapperClasses", "")
-        .split(" ").map { it.trim() }.filter { it.isNotEmpty() }.toSet()
+        .split(Regex("\\s+")).map { it.trim() }.filter { it.isNotEmpty() }.toSet()
 
     // Containerised rendering is byte-stable, so it can be strict. Local rendering
     // varies by host font stack, so it is tolerant (it is only a convenience mode).
