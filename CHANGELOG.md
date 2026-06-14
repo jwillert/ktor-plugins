@@ -12,6 +12,13 @@ All notable changes are documented here, grouped by module. Versions are unified
 ### ktor-ddd-exposed
 - Initial release: `ExposedUnitOfWork` backed by Exposed `suspendTransaction`
 
+### ktor-vrt
+- Initial release: kotlinx-html visual regression testing toolkit — `VrtHarness` (render → screenshot → diff), `Scenario`, `PlaywrightServerContainer` (pinned, deterministic), and the `VisualRegressionSpec` Kotest base
+- Theme attributes and capture-wrapper classes are configurable (no framework lock-in)
+
+### ktor-vrt-gradle-plugin
+- Initial release: `id("dev.jwillert.ktor-vrt")` — creates the `vrt` source set and `vrtTest`/`vrtTestDocker` tasks, configured via the `ktorVrt { }` extension; pulls in `ktor-vrt` (and its test deps) transitively
+
 ---
 
 ## [0.1.0] - 2024-12-01
