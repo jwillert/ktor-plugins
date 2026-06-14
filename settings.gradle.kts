@@ -23,6 +23,7 @@ include("ktor-oauth-session-redis")
 include("sample")
 include("ktor-ddd")
 include("ktor-ddd-exposed")
+include("ktor-vrt")
 
 dependencyResolutionManagement {
     repositories {

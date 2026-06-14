@@ -15,6 +15,9 @@ logback = "1.5.11"
 hikari = "5.1.0"
 h2 = "2.2.224"
 mavenPublishing = "0.36.0"
+kotlinx-html = "0.11.0"
+playwright = "1.49.0"
+imageComparison = "4.4.0"
 
 [libraries]
 # Ktor server
@@ -59,6 +62,12 @@ postgresql                    = { module = "org.postgresql:postgresql",         
 h2                            = { module = "com.h2database:h2",                           version.ref = "h2" }
 hikari                        = { module = "com.zaxxer:HikariCP",                         version.ref = "hikari" }
 logback                       = { module = "ch.qos.logback:logback-classic",              version.ref = "logback" }
+
+# Visual regression testing (ktor-vrt)
+kotlinx-html-jvm              = { module = "org.jetbrains.kotlinx:kotlinx-html-jvm",       version.ref = "kotlinx-html" }
+playwright                    = { module = "com.microsoft.playwright:playwright",          version.ref = "playwright" }
+image-comparison              = { module = "com.github.romankh3:image-comparison",         version.ref = "imageComparison" }
+kotest-framework-datatest     = { module = "io.kotest:kotest-framework-datatest",          version.ref = "kotest" }
 
 # Kotlin
 kotlin-gradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
