@@ -24,6 +24,7 @@ include("sample")
 include("ktor-ddd")
 include("ktor-ddd-exposed")
 include("ktor-vrt")
+include("ktor-vrt-gradle-plugin")
 
 dependencyResolutionManagement {
     repositories {
