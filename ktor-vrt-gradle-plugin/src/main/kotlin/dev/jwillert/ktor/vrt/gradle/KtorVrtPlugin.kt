@@ -11,8 +11,13 @@ class KtorVrtPlugin : Plugin<Project> {
 
     private val ktorVrtVersion: String by lazy {
         val props = Properties()
-        javaClass.getResourceAsStream("/ktor-vrt.properties")!!.use { props.load(it) }
-        props.getProperty("ktorVrtVersion")
+        val stream = checkNotNull(javaClass.getResourceAsStream("/ktor-vrt.properties")) {
+            "ktor-vrt.properties not found on the plugin classpath"
+        }
+        stream.use { props.load(it) }
+        requireNotNull(props.getProperty("ktorVrtVersion")) {
+            "ktorVrtVersion missing from ktor-vrt.properties"
+        }
     }
 
     override fun apply(project: Project) {
